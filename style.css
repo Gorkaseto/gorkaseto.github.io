@@ -1525,40 +1525,54 @@ ul {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .terminal-user {
   color: var(--cyan-primary);
   font-weight: 600;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 #terminal-input,
-#hero-terminal-input {
-  flex: 1;
-  background: transparent;
+#hero-terminal-input,
+.cyber-terminal-input {
+  flex: 1 1 0%;
+  width: 100%;
+  min-width: 0;
+  background: transparent !important;
+  background-color: transparent !important;
   border: none !important;
+  border-width: 0 !important;
   outline: none !important;
   box-shadow: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   color: var(--text-main);
   font-family: var(--font-mono);
   font-size: 0.88rem;
-  padding: 0;
+  padding: 0.2rem 0;
   margin: 0;
   caret-color: var(--cyan-primary);
 }
 
 #terminal-input:focus,
-#hero-terminal-input:focus {
+#hero-terminal-input:focus,
+.cyber-terminal-input:focus {
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 #terminal-input::placeholder,
-#hero-terminal-input::placeholder {
+#hero-terminal-input::placeholder,
+.cyber-terminal-input::placeholder {
   color: var(--text-dim);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 /* ==========================================================================
