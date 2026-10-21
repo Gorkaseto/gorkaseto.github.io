@@ -391,18 +391,19 @@ ul {
   margin: 0 auto;
   padding: 4.5rem 1.5rem 5rem;
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: clamp(2rem, 3.5vw, 3.5rem);
   position: relative;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1), gap 0.5s cubic-bezier(0.16, 1, 0.3, 1), grid-template-columns 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              gap 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 1360px) {
   .hero-section.terminal-active {
     max-width: 1650px;
     transform: translateX(-180px);
-    grid-template-columns: 460px 1fr;
     gap: 2.5rem;
   }
 }
@@ -411,7 +412,6 @@ ul {
   .hero-section.terminal-active {
     max-width: 1480px;
     transform: translateX(-90px);
-    grid-template-columns: 400px 1fr;
     gap: 1.75rem;
   }
 }
@@ -621,23 +621,34 @@ ul {
 
 .terminal-frame-wrapper {
   display: none;
+  max-width: 0;
+  min-width: 0;
   width: 640px;
-  min-width: 580px;
-  max-width: 650px;
-  flex: 0 0 640px;
-  padding: 12px;
+  flex: 0 0 0px;
+  padding: 12px 0;
   opacity: 0;
   transform: translateX(35px);
-  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              flex-basis 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-section.terminal-active .terminal-frame-wrapper {
+  max-width: 650px;
+  flex: 0 0 640px;
+  padding: 12px;
   opacity: 1;
   transform: translateX(0);
+  pointer-events: auto;
 }
 
 .hero-terminal-window {
-  width: 100%;
+  width: 616px;
+  min-width: 616px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -1758,7 +1769,7 @@ ul {
   }
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1023px) {
   .hud-nav, .hud-telemetry-pill {
     display: none;
   }
@@ -1807,11 +1818,21 @@ ul {
     flex: 0 0 auto;
   }
 
+  .terminal-frame-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .hero-section.terminal-active .terminal-frame-wrapper {
     width: 100%;
     min-width: 0;
     max-width: 100%;
     flex: 0 0 auto;
+  }
+
+  .hero-terminal-window {
+    width: 100%;
+    min-width: 0;
   }
 
   .hero-meta-badge {

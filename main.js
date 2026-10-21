@@ -291,12 +291,12 @@ Agumon Hakase // Research specialist and data systems operative.
       operatorCard.setAttribute('aria-expanded', 'false');
     }
 
-    // Wait for the slide/fade transition to complete before setting display: none
+    // Wait for the slide/fade/width transition to complete before setting display: none
     setTimeout(() => {
       if (!heroSection.classList.contains('terminal-active')) {
         terminalFrame.style.display = 'none';
       }
-    }, 450);
+    }, 460);
   }
 
   function toggleTerminal() {
