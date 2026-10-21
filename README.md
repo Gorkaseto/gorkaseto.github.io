@@ -1,29 +1,29 @@
 # Gorka Setien | Portfolio & Personal Web
 
-Sitio web personal y portafolio técnico de **Gorka Setien** (@gorkaseto), desplegado en **GitHub Pages**:
+Personal website and technical portfolio of **Gorka Setien** (@gorkaseto), deployed on **GitHub Pages**:
 👉 **[https://gorkaseto.github.io/](https://gorkaseto.github.io/)**
 
-## 🌐 Tecnologías & Temática
-- **Estética:** Cyberpunk seria, profesional y técnica (High-Tech / Sci-Fi Industrial / Obsidian & Neon Cyan).
-- **Core:** HTML5 Semántico, CSS3 moderno (Custom Properties, Flexbox, Grid, Clip-path, responsive design) y Vanilla JavaScript modular.
-- **Especialización Destacada:** 
-  - **Inteligencia Artificial & LLMs:** Spec-Driven Development (SDD), orquestación de agentes autónomos, integración mediante Model Context Protocol (MCP), Context Engineering y scripts de automatización.
-  - **Computación Espacial:** Unity 3D, Realidad Virtual (Meta Quest, OpenXR), Netcode para multijugador y DOTS/ECS.
-- **Interactividad:**
-  - HUD superior con hora UTC en tiempo real.
-  - Sección interactiva dedicada a los 4 pasos del pipeline SDD (*Spec -> Orchestration -> Verification -> Deploy*).
-  - Efecto de terminal y máquina de escribir.
-  - Consola interactiva cyberpunk (`help`, `ai`, `about`, `stack`, `experience`, `contact`, `whoami`, etc.).
-  - Fondo dinámico canvas con partículas interconectadas reactivas al cursor.
-  - Telemetría en vivo sincronizada con estadísticas y racha de GitHub.
-  - Botón de copiado con feedback visual táctico para el email de contacto.
-- **Optimización:** Cero dependencias pesadas, carga instantánea, compatible con GitHub Pages con `.nojekyll`.
+## 🌐 Technologies & Theme
+- **Aesthetic:** Serious, professional cyberpunk engineering (High-Tech / Industrial Sci-Fi / Obsidian & Neon Cyan).
+- **Core:** Semantic HTML5, modern CSS3 (Custom Properties, Flexbox, Grid, Clip-path, responsive design) and modular Vanilla JavaScript.
+- **Featured Specializations:** 
+  - **Artificial Intelligence & LLMs:** Spec-Driven Development (SDD), autonomous agent orchestration, Model Context Protocol (MCP) integrations, Context Engineering, and automation scripting.
+  - **Spatial Computing:** Unity 3D, Virtual Reality (Meta Quest, OpenXR), multiplayer networking (NGO, Photon), and data-oriented design with DOTS/ECS.
+- **Interactivity:**
+  - Real-time UTC HUD clock in the top bar.
+  - Interactive walkthrough of the 4-step SDD pipeline (*Spec -> Orchestration -> Verification -> Deploy*).
+  - Terminal effect and typewriter animation.
+  - Cyberpunk interactive command console (`help`, `ai`, `about`, `stack`, `experience`, `contact`, `whoami`, etc.).
+  - Dynamic HTML5 canvas background featuring mouse-reactive interconnected nodes.
+  - Live telemetry synchronized with GitHub statistics and streaks.
+  - Tactical clipboard copy feedback for the contact email.
+- **Optimization:** Zero heavy dependencies, instantaneous loading, fully compatible with GitHub Pages via `.nojekyll`.
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 ```text
-├── index.html        # Estructura principal y metadatos SEO / OpenGraph
-├── style.css         # Sistema de diseño cyberpunk y responsividad
-├── main.js           # Lógica interactiva (reloj, typing, terminal, canvas)
-├── .nojekyll         # Desactiva el procesamiento de Jekyll en GitHub Pages
-└── assets/           # Imágenes e iconos (Agumon Hakase avatar y GIF)
+├── index.html        # Main DOM structure and SEO / OpenGraph metadata
+├── style.css         # Cyberpunk design system and responsive styling
+├── main.js           # Interactive logic (clock, typewriter, terminal, canvas)
+├── .nojekyll         # Disables Jekyll processing on GitHub Pages
+└── assets/           # Images and icons (Agumon Hakase avatar and GIF)
 ```

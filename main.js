@@ -201,53 +201,53 @@ function initTerminal() {
 
   const commandList = {
     help: () => `
-<span class="text-cyan">COMANDOS DISPONIBLES:</span>
-  <span class="text-amber">ai</span>          - Protocolos de IA, LLMs y Spec-Driven Dev
-  <span class="text-amber">about</span>       - Resumen de perfil y enfoque de ingeniería
-  <span class="text-amber">stack</span>       - Arsenal tecnológico y protocolos clave
-  <span class="text-amber">experience</span>  - Información laboral actual (Innovae) y formación
-  <span class="text-amber">contact</span>     - Canales de comunicación directa
-  <span class="text-amber">partner</span>     - Identificación del asistente digital
-  <span class="text-amber">clear</span>       - Limpiar pantalla de consola
-  <span class="text-amber">whoami</span>      - Diagnóstico de sesión
-  <span class="text-amber">date</span>        - Timestamp del sistema
+<span class="text-cyan">AVAILABLE COMMANDS:</span>
+  <span class="text-amber">ai</span>          - AI protocols, LLMs &amp; Spec-Driven Dev
+  <span class="text-amber">about</span>       - Profile overview &amp; engineering philosophy
+  <span class="text-amber">stack</span>       - Technical arsenal &amp; key protocols
+  <span class="text-amber">experience</span>  - Operational history (Innovae) &amp; credentials
+  <span class="text-amber">contact</span>     - Direct communication channels
+  <span class="text-amber">partner</span>     - Digital partner identification
+  <span class="text-amber">clear</span>       - Clear terminal screen
+  <span class="text-amber">whoami</span>      - Session diagnostic
+  <span class="text-amber">date</span>        - System timestamp
 `,
     ai: () => `
 <span class="text-cyan">[NEURAL PROTOCOLS &amp; AI CAPABILITIES]</span>
-• <strong class="text-main">Spec-Driven Development (SDD):</strong> Especificaciones formales como blueprint canónico para generación determinista de código.
-• <strong class="text-main">Autonomous Agent Orchestration:</strong> Pipelines agénticos multi-rol (investigador, arquitecto, ejecutor, auditor).
-• <strong class="text-main">Model Context Protocol (MCP):</strong> Interconexión de LLMs con herramientas del workspace, profiling de Unity y servicios externos.
-• <strong class="text-main">Context Engineering:</strong> Gestión estricta de ventanas de contexto, RAG estructurado y minimización de alucinaciones.
+• <strong class="text-main">Spec-Driven Development (SDD):</strong> Formal specifications as canonical blueprints for deterministic code generation.
+• <strong class="text-main">Autonomous Agent Orchestration:</strong> Multi-role agentic pipelines (researcher, architect, executor, auditor).
+• <strong class="text-main">Model Context Protocol (MCP):</strong> Interfacing LLMs with local workspace tools, Unity profiling, and external services.
+• <strong class="text-main">Context Engineering:</strong> Strict context window budgeting, structured RAG, and hallucination reduction.
 `,
     about: () => `
-<span class="text-cyan">[DIAGNÓSTICO // ABOUT]</span>
-Gorka Setien: Computer Science Engineer especializado en la intersección de
-Inteligencia Artificial aplicada (LLMs, SDD, agentes) y computación espacial
-(Unity VR, Netcode, DOTS) en Innovae Group.
+<span class="text-cyan">[SYSTEM DIAGNOSTIC // ABOUT]</span>
+Gorka Setien: Computer Science Engineer specializing at the intersection of
+Applied Artificial Intelligence (LLMs, SDD, autonomous agents) and spatial
+computing (Unity VR, Netcode, DOTS) at Innovae Group.
 `,
     stack: () => `
-<span class="text-cyan">[ARSENAL TECNOLÓGICO]</span>
+<span class="text-cyan">[TECHNICAL ARSENAL]</span>
 • <strong class="text-cyan">AI &amp; Neural:</strong> LLMs, Spec-Driven Development (SDD), Autonomous Agents, MCP, Context Engineering
 • <strong class="text-magenta">XR / Engines:</strong> Unity 3D, Meta Quest SDK, OpenXR, XR Interaction Toolkit
 • <strong class="text-amber">Languages:</strong> C# (.NET), Python, Dart, Flutter, Android Native
 • <strong class="text-main">Architecture:</strong> Unity NGO (Netcode), Photon Engine, DOTS / ECS
 `,
     experience: () => `
-<span class="text-cyan">[HISTORIAL DE OPERACIONES]</span>
-[ACTIVE]  <strong>Innovae Group</strong> // VR & Software Developer (Presente)
-          Desarrollo de simulaciones y experiencias industriales inmersivas en Unity.
-[DEGREE]  <strong>Computer Science Engineer</strong> // Grado en Ingeniería Informática.
+<span class="text-cyan">[OPERATIONAL HISTORY]</span>
+[ACTIVE]  <strong>Innovae Group</strong> // VR & Software Developer (Present)
+          Engineering immersive industrial simulations and VR systems in Unity 3D.
+[DEGREE]  <strong>Computer Science Engineer</strong> // B.S. in Computer Science & Engineering.
 `,
     contact: () => `
-<span class="text-cyan">[CANALES DE COMUNICACIÓN]</span>
+<span class="text-cyan">[COMMUNICATION CHANNELS]</span>
 • LinkedIn: <a href="https://www.linkedin.com/in/gorka-setien/" target="_blank" class="text-amber">linkedin.com/in/gorka-setien</a>
 • GitHub:   <a href="https://github.com/gorkaseto" target="_blank" class="text-amber">github.com/gorkaseto</a>
 • Email:    <a href="mailto:gorka.seto@gmail.com" class="text-amber">gorka.seto@gmail.com</a>
 `,
     partner: () => `
 <span class="text-cyan">[DIGITAL PARTNER DETECTED]</span>
-Agumon Hakase // Especialista en investigación y sistemas de datos.
-"Siempre listo para analizar nuevas tecnologías y compilar soluciones robustas."
+Agumon Hakase // Research specialist and data systems operative.
+"Always ready to analyze emerging technologies and compile robust solutions."
 `,
     whoami: () => `<span class="text-muted">guest_user@cyber-grid // ACCESS_LEVEL: SECURE_PUBLIC_GUEST</span>`,
     date: () => `<span class="text-cyan">${new Date().toUTCString()}</span>`
@@ -279,7 +279,7 @@ Agumon Hakase // Especialista en investigación y sistemas de datos.
       if (commandList[command]) {
         responseLine.innerHTML = commandList[command]();
       } else {
-        responseLine.innerHTML = `<span style="color: #f43f5e;">Comando no reconocido: '${escapeHtml(rawInput)}'. Escribe '<span class="text-cyan">help</span>' para la lista de comandos.</span>`;
+        responseLine.innerHTML = `<span style="color: #f43f5e;">Command not recognized: '${escapeHtml(rawInput)}'. Type '<span class="text-cyan">help</span>' for available commands.</span>`;
       }
 
       terminalHistory.appendChild(responseLine);
@@ -319,19 +319,19 @@ function initCopyEmail() {
         document.body.removeChild(textArea);
       }
 
-      copyFeedback.innerHTML = '<i class="fa-solid fa-check"></i> ¡COPIADO!';
+      copyFeedback.innerHTML = '<i class="fa-solid fa-check"></i> COPIED!';
       copyFeedback.style.background = 'rgba(16, 185, 129, 0.2)';
       copyFeedback.style.color = '#10b981';
       copyFeedback.style.borderColor = 'rgba(16, 185, 129, 0.4)';
 
       setTimeout(() => {
-        copyFeedback.innerHTML = '<i class="fa-regular fa-copy"></i> COPIAR';
+        copyFeedback.innerHTML = '<i class="fa-regular fa-copy"></i> COPY';
         copyFeedback.style.background = '';
         copyFeedback.style.color = '';
         copyFeedback.style.borderColor = '';
       }, 2500);
     } catch (err) {
-      console.error('Error al copiar al portapapeles:', err);
+      console.error('Error copying to clipboard:', err);
     }
   });
 }
