@@ -380,13 +380,6 @@ Agumon Hakase // Research specialist and data systems operative.
     }
   });
 
-  // URL hash check on page load
-  if (window.location.hash === '#terminal') {
-    setTimeout(() => {
-      openTerminal();
-    }, 250);
-  }
-
   function escapeHtml(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
