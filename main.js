@@ -195,7 +195,9 @@ function initBackgroundCanvas() {
    ========================================================================== */
 function initTerminal() {
   const heroSection = document.querySelector('.hero-section');
+  const operatorFrame = document.getElementById('operator-frame');
   const operatorCard = document.getElementById('operator-card');
+  const terminalFrame = document.getElementById('hero-terminal-frame');
   const terminalInput = document.getElementById('hero-terminal-input');
   const terminalHistory = document.getElementById('hero-terminal-history');
   const terminalScreen = document.getElementById('hero-terminal-screen');
@@ -203,7 +205,10 @@ function initTerminal() {
   const navTerminalLink = document.getElementById('nav-terminal-link');
   const mobileNavTerminalLink = document.getElementById('mobile-nav-terminal-link');
 
-  if (!terminalInput || !terminalHistory) return;
+  if (!terminalFrame || !terminalInput || !terminalHistory) return;
+
+  // Ensure terminal starts strictly hidden on initial page load
+  terminalFrame.style.display = 'none';
 
   const commandList = {
     help: () => `
@@ -261,17 +266,31 @@ Agumon Hakase // Research specialist and data systems operative.
 
   // Open / Close terminal functions
   function openTerminal() {
-    if (!heroSection) return;
+    if (!heroSection || !terminalFrame) return;
+
+    terminalFrame.style.display = 'block';
+    // Force browser reflow so transition runs smoothly
+    void terminalFrame.offsetWidth;
+
     heroSection.classList.add('terminal-active');
+
     setTimeout(() => {
       terminalInput.focus();
       if (terminalScreen) terminalScreen.scrollTop = terminalScreen.scrollHeight;
-    }, 150);
+    }, 180);
   }
 
   function closeTerminal() {
-    if (!heroSection) return;
+    if (!heroSection || !terminalFrame) return;
+
     heroSection.classList.remove('terminal-active');
+
+    // Wait for the slide/fade transition to complete before setting display: none
+    setTimeout(() => {
+      if (!heroSection.classList.contains('terminal-active')) {
+        terminalFrame.style.display = 'none';
+      }
+    }, 450);
   }
 
   function toggleTerminal() {
@@ -282,17 +301,28 @@ Agumon Hakase // Research specialist and data systems operative.
     }
   }
 
-  // Operator card click toggles terminal
-  if (operatorCard) {
-    operatorCard.addEventListener('click', (e) => {
+  // Operator card and frame click toggles terminal
+  const clickTarget = operatorCard || operatorFrame;
+  if (clickTarget) {
+    clickTarget.style.cursor = 'pointer';
+    clickTarget.addEventListener('click', (e) => {
+      if (e.target.closest('#hero-terminal-frame')) return;
       toggleTerminal();
     });
 
-    operatorCard.addEventListener('keydown', (e) => {
+    clickTarget.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         toggleTerminal();
       }
+    });
+  }
+
+  if (operatorFrame && operatorFrame !== clickTarget) {
+    operatorFrame.style.cursor = 'pointer';
+    operatorFrame.addEventListener('click', (e) => {
+      if (e.target.closest('#hero-terminal-frame')) return;
+      toggleTerminal();
     });
   }
 
