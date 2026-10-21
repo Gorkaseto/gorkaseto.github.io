@@ -194,9 +194,15 @@ function initBackgroundCanvas() {
    04. INTERACTIVE CYBER TERMINAL
    ========================================================================== */
 function initTerminal() {
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalHistory = document.getElementById('terminal-history');
-  const terminalScreen = document.getElementById('terminal-screen');
+  const heroSection = document.querySelector('.hero-section');
+  const operatorCard = document.getElementById('operator-card');
+  const terminalInput = document.getElementById('hero-terminal-input');
+  const terminalHistory = document.getElementById('hero-terminal-history');
+  const terminalScreen = document.getElementById('hero-terminal-screen');
+  const terminalClose = document.getElementById('hero-terminal-close');
+  const navTerminalLink = document.getElementById('nav-terminal-link');
+  const mobileNavTerminalLink = document.getElementById('mobile-nav-terminal-link');
+
   if (!terminalInput || !terminalHistory) return;
 
   const commandList = {
@@ -253,6 +259,75 @@ Agumon Hakase // Research specialist and data systems operative.
     date: () => `<span class="text-cyan">${new Date().toUTCString()}</span>`
   };
 
+  // Open / Close terminal functions
+  function openTerminal() {
+    if (!heroSection) return;
+    heroSection.classList.add('terminal-active');
+    setTimeout(() => {
+      terminalInput.focus();
+      if (terminalScreen) terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    }, 150);
+  }
+
+  function closeTerminal() {
+    if (!heroSection) return;
+    heroSection.classList.remove('terminal-active');
+  }
+
+  function toggleTerminal() {
+    if (heroSection && heroSection.classList.contains('terminal-active')) {
+      closeTerminal();
+    } else {
+      openTerminal();
+    }
+  }
+
+  // Operator card click toggles terminal
+  if (operatorCard) {
+    operatorCard.addEventListener('click', (e) => {
+      toggleTerminal();
+    });
+
+    operatorCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTerminal();
+      }
+    });
+  }
+
+  // Close dot inside terminal
+  if (terminalClose) {
+    terminalClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeTerminal();
+    });
+  }
+
+  // Escape key closes terminal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && heroSection && heroSection.classList.contains('terminal-active')) {
+      closeTerminal();
+    }
+  });
+
+  // Nav terminal link clicks
+  function handleNavTerminal(e) {
+    e.preventDefault();
+    const hero = document.getElementById('hero') || heroSection;
+    if (hero) {
+      hero.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    openTerminal();
+  }
+
+  if (navTerminalLink) navTerminalLink.addEventListener('click', handleNavTerminal);
+  if (mobileNavTerminalLink) mobileNavTerminalLink.addEventListener('click', handleNavTerminal);
+
+  // Command History Navigation
+  const commandHistory = [];
+  let historyIndex = -1;
+
   terminalInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       const rawInput = terminalInput.value.trim();
@@ -260,6 +335,9 @@ Agumon Hakase // Research specialist and data systems operative.
       terminalInput.value = '';
 
       if (!command) return;
+
+      commandHistory.push(rawInput);
+      historyIndex = commandHistory.length;
 
       // Add user line to history
       const userLine = document.createElement('div');
@@ -284,8 +362,30 @@ Agumon Hakase // Research specialist and data systems operative.
 
       terminalHistory.appendChild(responseLine);
       terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        terminalInput.value = commandHistory[historyIndex] || '';
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        terminalInput.value = commandHistory[historyIndex] || '';
+      } else {
+        historyIndex = commandHistory.length;
+        terminalInput.value = '';
+      }
     }
   });
+
+  // URL hash check on page load
+  if (window.location.hash === '#terminal') {
+    setTimeout(() => {
+      openTerminal();
+    }, 250);
+  }
 
   function escapeHtml(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

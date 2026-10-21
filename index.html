@@ -50,7 +50,7 @@
         <a href="#ai-protocols" class="hud-nav-link highlight-link"><span class="nav-num">02.</span>AI &amp; SDD</a>
         <a href="#tech" class="hud-nav-link"><span class="nav-num">03.</span>STACK</a>
         <!-- <a href="#experience" class="hud-nav-link"><span class="nav-num">04.</span>EXPERIENCE</a> -->
-        <a href="#terminal" class="hud-nav-link"><span class="nav-num">04.</span>TERMINAL</a>
+        <a href="#terminal" class="hud-nav-link" id="nav-terminal-link"><span class="nav-num">04.</span>TERMINAL</a>
         <a href="#contact" class="hud-nav-link hud-btn-outline"><i class="fa-solid fa-satellite-dish"></i> CONTACT</a>
       </nav>
 
@@ -71,7 +71,7 @@
       <a href="#ai-protocols" class="mobile-nav-link highlight">02. AI &amp; SDD PIPELINES</a>
       <a href="#tech" class="mobile-nav-link">03. TECH STACK</a>
       <!-- <a href="#experience" class="mobile-nav-link">04. EXPERIENCE</a> -->
-      <a href="#terminal" class="mobile-nav-link">04. TERMINAL</a>
+      <a href="#terminal" class="mobile-nav-link" id="mobile-nav-terminal-link">04. TERMINAL</a>
       <a href="#contact" class="mobile-nav-link highlight">05. CONTACT</a>
     </div>
   </header>
@@ -120,15 +120,18 @@
         </div>
       </div>
 
-      <!-- Holographic Profile Card -->
-      <div class="hero-visual">
-        <div class="cyber-frame-wrapper">
+      <!-- Holographic Profile Card & Integrated Deployable Terminal -->
+      <div class="hero-visual" id="hero-visual">
+        <div id="terminal" class="terminal-anchor"></div>
+
+        <!-- Operator Card Wrapper -->
+        <div class="cyber-frame-wrapper operator-frame-wrapper" id="operator-frame">
           <div class="cyber-frame-corner top-left"></div>
           <div class="cyber-frame-corner top-right"></div>
           <div class="cyber-frame-corner bottom-left"></div>
           <div class="cyber-frame-corner bottom-right"></div>
           
-          <div class="holo-card">
+          <div class="holo-card" id="operator-card" tabindex="0" role="button" aria-label="Operator System Window. Click to open terminal.">
             <div class="holo-header">
               <span class="holo-dot red"></span>
               <span class="holo-dot amber"></span>
@@ -161,6 +164,41 @@
               <div class="spec-row">
                 <span class="spec-key">ACTIVE_STATION:</span>
                 <span class="spec-val text-amber">Innovae Group</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal Window Wrapper (shifts in side-by-side) -->
+        <div class="cyber-frame-wrapper terminal-frame-wrapper" id="hero-terminal-frame">
+          <div class="cyber-frame-corner top-left"></div>
+          <div class="cyber-frame-corner top-right"></div>
+          <div class="cyber-frame-corner bottom-left"></div>
+          <div class="cyber-frame-corner bottom-right"></div>
+
+          <div class="terminal-wrapper hero-terminal-window">
+            <div class="terminal-bar">
+              <div class="terminal-dots">
+                <span class="dot close" id="hero-terminal-close" title="Close Terminal (Esc)"></span>
+                <span class="dot min"></span>
+                <span class="dot max"></span>
+              </div>
+              <div class="terminal-title">gorkaseto@cyber-core:~ (bash/zsh emulation)</div>
+              <div class="terminal-status">[CONNECTED // AI_SUBSYSTEM: READY]</div>
+            </div>
+
+            <div class="terminal-body" id="hero-terminal-screen">
+              <div class="terminal-line text-muted">
+                ========================================================================<br />
+                &nbsp;GORKA_SETIEN // VR &amp; AI SYSTEMS ARCHITECT TERMINAL [v2.5.0-release]<br />
+                &nbsp;Type '<span class="text-cyan">help</span>' or '<span class="text-cyan">ai</span>' to explore protocols and capabilities.<br />
+                ========================================================================
+              </div>
+              <div id="hero-terminal-history"></div>
+              
+              <div class="terminal-input-row">
+                <span class="terminal-user">guest@gorkaseto:~$</span>
+                <input type="text" id="hero-terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. ai, stack, about)..." />
               </div>
             </div>
           </div>
@@ -533,8 +571,8 @@
     </section>
     -->
 
-    <!-- SECTION 04: INTERACTIVE CYBER TERMINAL -->
-    <section class="cyber-section" id="terminal">
+    <!-- HIDDEN: STANDALONE TERMINAL HAS BEEN INTEGRATED INTO HERO SECTION
+    <section class="cyber-section" id="terminal-standalone">
       <div class="section-header">
         <span class="section-tag">[ 04 // TERMINAL CONSOLE ]</span>
         <h2 class="section-title">INTERACTIVE COMMAND CONSOLE</h2>
@@ -568,11 +606,12 @@
         </div>
       </div>
     </section>
+    -->
 
-    <!-- SECTION 05: CONTACT / COMM-LINK -->
+    <!-- SECTION 04: CONTACT / COMM-LINK -->
     <section class="cyber-section" id="contact">
       <div class="section-header">
-        <span class="section-tag">[ 05 // SECURE COMM-LINK ]</span>
+        <span class="section-tag">[ 04 // SECURE COMM-LINK ]</span>
         <h2 class="section-title">CONTACT &amp; COMM-LINKS</h2>
         <div class="section-line"></div>
       </div>
