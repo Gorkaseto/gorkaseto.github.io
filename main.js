@@ -39,7 +39,7 @@ function initTypewriter() {
   if (!target) return;
 
   const phrases = [
-    'LLMs & Spec-Driven Development (SDD)',
+    'LLMs & Spec-Driven Development (OpenSpec)',
     'Autonomous AI Agents & MCP Tooling',
     'Unity & Virtual Reality Architect',
     'Computer Science Engineer @ Innovae Group',
@@ -214,7 +214,7 @@ function initTerminal() {
 `,
     ai: () => `
 <span class="text-cyan">[NEURAL PROTOCOLS &amp; AI CAPABILITIES]</span>
-• <strong class="text-main">Spec-Driven Development (SDD):</strong> Formal specifications as canonical blueprints for deterministic code generation.
+• <strong class="text-main">Spec-Driven Development (SDD via OpenSpec):</strong> Formal specifications as canonical blueprints for deterministic code generation.
 • <strong class="text-main">Autonomous Agent Orchestration:</strong> Multi-role agentic pipelines (researcher, architect, executor, auditor).
 • <strong class="text-main">Model Context Protocol (MCP):</strong> Interfacing LLMs with local workspace tools, Unity profiling, and external services.
 • <strong class="text-main">Context Engineering:</strong> Strict context window budgeting, structured RAG, and hallucination reduction.
@@ -222,12 +222,12 @@ function initTerminal() {
     about: () => `
 <span class="text-cyan">[SYSTEM DIAGNOSTIC // ABOUT]</span>
 Gorka Setien: Computer Science Engineer specializing at the intersection of
-Applied Artificial Intelligence (LLMs, SDD, autonomous agents) and spatial
+Applied Artificial Intelligence (LLMs, SDD with OpenSpec, autonomous agents) and spatial
 computing (Unity VR, Netcode, DOTS) at Innovae Group.
 `,
     stack: () => `
 <span class="text-cyan">[TECHNICAL ARSENAL]</span>
-• <strong class="text-cyan">AI &amp; Neural:</strong> LLMs, Spec-Driven Development (SDD), Autonomous Agents, MCP, Context Engineering
+• <strong class="text-cyan">AI &amp; Neural:</strong> LLMs, Spec-Driven Development (OpenSpec / SDD), Autonomous Agents, MCP, Context Engineering
 • <strong class="text-magenta">XR / Engines:</strong> Unity 3D, Pico XR Enterprise SDK (Pico 3, 4, 4 Ultra, Swan / Space Pro), OpenXR, XR Interaction Toolkit
 • <strong class="text-amber">Languages:</strong> C# (.NET), Python, Dart, Flutter, Android Native
 • <strong class="text-main">Architecture:</strong> Unity NGO (Netcode), Photon Engine, DOTS / ECS
