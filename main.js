@@ -228,7 +228,7 @@ computing (Unity VR, Netcode, DOTS) at Innovae Group.
     stack: () => `
 <span class="text-cyan">[TECHNICAL ARSENAL]</span>
 • <strong class="text-cyan">AI &amp; Neural:</strong> LLMs, Spec-Driven Development (SDD), Autonomous Agents, MCP, Context Engineering
-• <strong class="text-magenta">XR / Engines:</strong> Unity 3D, Meta Quest SDK, OpenXR, XR Interaction Toolkit
+• <strong class="text-magenta">XR / Engines:</strong> Unity 3D, Pico XR Enterprise SDK (Pico 3, 4, 4 Ultra, Swan / Space Pro), OpenXR, XR Interaction Toolkit
 • <strong class="text-amber">Languages:</strong> C# (.NET), Python, Dart, Flutter, Android Native
 • <strong class="text-main">Architecture:</strong> Unity NGO (Netcode), Photon Engine, DOTS / ECS
 `,

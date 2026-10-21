@@ -8,7 +8,7 @@ Personal website and technical portfolio of **Gorka Setien** (@gorkaseto), deplo
 - **Core:** Semantic HTML5, modern CSS3 (Custom Properties, Flexbox, Grid, Clip-path, responsive design) and modular Vanilla JavaScript.
 - **Featured Specializations:** 
   - **Artificial Intelligence & LLMs:** Spec-Driven Development (SDD), autonomous agent orchestration, Model Context Protocol (MCP) integrations, Context Engineering, and automation scripting.
-  - **Spatial Computing:** Unity 3D, Virtual Reality (Meta Quest, OpenXR), multiplayer networking (NGO, Photon), and data-oriented design with DOTS/ECS.
+  - **Spatial Computing:** Unity 3D, Virtual Reality (Pico XR Enterprise lineup: Pico Neo 3 Pro/Enterprise, Pico 4 Enterprise, Pico 4 Ultra Enterprise, Pico Project Swan / Space Pro; OpenXR), multiplayer networking (NGO, Photon), and data-oriented design with DOTS/ECS.
 - **Interactivity:**
   - Real-time UTC HUD clock in the top bar.
   - Interactive walkthrough of the 4-step SDD pipeline (*Spec -> Orchestration -> Verification -> Deploy*).
