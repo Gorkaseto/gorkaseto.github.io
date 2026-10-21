@@ -37,7 +37,7 @@
   --font-heading: 'Space Grotesk', sans-serif;
 
   --nav-height: 70px;
-  --container-max: 1200px;
+  --container-max: 1400px;
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-med: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -138,12 +138,14 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
 }
 
 .hud-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .hud-status-indicator {
@@ -167,6 +169,7 @@ ul {
   letter-spacing: 2px;
   color: var(--text-main);
   position: relative;
+  white-space: nowrap;
 }
 
 .hud-badge {
@@ -178,23 +181,25 @@ ul {
   border: 1px solid rgba(0, 240, 255, 0.25);
   border-radius: 2px;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .hud-nav {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: clamp(1rem, 1.4vw, 1.65rem);
 }
 
 .hud-nav-link {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: clamp(0.76rem, 0.85vw, 0.82rem);
   font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   position: relative;
   transition: color var(--transition-fast);
   padding: 0.35rem 0;
+  white-space: nowrap;
 }
 
 .hud-nav-link .nav-num {
@@ -252,6 +257,8 @@ ul {
   border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .telemetry-label {
@@ -305,9 +312,9 @@ ul {
   margin: 0 auto;
   padding: 4.5rem 1.5rem 5rem;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.25fr 0.75fr;
   align-items: center;
-  gap: 3.5rem;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
   position: relative;
 }
 
@@ -389,7 +396,7 @@ ul {
   color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 2.25rem;
-  max-width: 580px;
+  max-width: 640px;
 }
 
 .hero-bio strong {
@@ -1484,7 +1491,25 @@ ul {
    RESPONSIVE QUERIES
    ========================================================================== */
 
+@media (max-width: 1120px) {
+  .hud-badge {
+    display: none;
+  }
+}
+
 @media (max-width: 968px) {
+  .hud-nav, .hud-telemetry-pill {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-nav-drawer.active {
+    display: flex;
+  }
+
   .sdd-pipeline-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1524,18 +1549,6 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .hud-nav, .hud-telemetry-pill {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  .mobile-nav-drawer.active {
-    display: flex;
-  }
-
   .cyber-section {
     padding: 3.5rem 1.25rem;
   }
