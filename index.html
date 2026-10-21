@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorka Setién | VR Systems & Unity Software Engineer</title>
+  
+  <!-- SEO & OpenGraph Meta Tags -->
+  <meta name="description" content="Portfolio de Gorka Setién - Computer Science Engineer especializado en Realidad Virtual con Unity, Arquitectura Multijugador, DOTS y Spec-Driven Development." />
+  <meta name="author" content="Gorka Setién" />
+  <meta name="keywords" content="Gorka Setien, Unity Developer, VR Developer, Virtual Reality, Innovae, Netcode, DOTS, Spec-Driven Development, Software Engineer" />
+  
+  <!-- OpenGraph / Social Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gorkaseto.github.io/" />
+  <meta property="og:title" content="Gorka Setién | VR Systems & Unity Software Engineer" />
+  <meta property="og:description" content="Computer Science Engineer building immersive VR experiences & robust multiplayer architectures." />
+  <meta property="og:image" content="./assets/agumon_hakase.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/gif" href="./assets/agumon_hakase_vpet.gif" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Ambient Canvas Background -->
+  <canvas id="cyber-grid-canvas"></canvas>
+  <div class="scanline-overlay" aria-hidden="true"></div>
+
+  <!-- TOP HUD BAR / NAV -->
+  <header class="hud-header">
+    <div class="hud-container">
+      <div class="hud-brand">
+        <span class="hud-status-indicator" title="System Online"></span>
+        <span class="hud-glitch-text" data-text="GORKA_SETIÉN">GORKA_SETIÉN</span>
+        <span class="hud-badge">[CS_ENG // VR_SPEC]</span>
+      </div>
+
+      <nav class="hud-nav" aria-label="Navegación principal">
+        <a href="#about" class="hud-nav-link"><span class="nav-num">01.</span>ABOUT</a>
+        <a href="#tech" class="hud-nav-link"><span class="nav-num">02.</span>STACK</a>
+        <a href="#experience" class="hud-nav-link"><span class="nav-num">03.</span>EXPERIENCE</a>
+        <a href="#telemetry" class="hud-nav-link"><span class="nav-num">04.</span>METRICS</a>
+        <a href="#terminal" class="hud-nav-link"><span class="nav-num">05.</span>TERMINAL</a>
+        <a href="#contact" class="hud-nav-link hud-btn-outline"><i class="fa-solid fa-satellite-dish"></i> CONTACT</a>
+      </nav>
+
+      <div class="hud-telemetry-pill">
+        <span class="telemetry-label">SYS_TIME</span>
+        <span id="hud-clock" class="telemetry-value">--:--:-- UTC</span>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <a href="#about" class="mobile-nav-link">01. ABOUT</a>
+      <a href="#tech" class="mobile-nav-link">02. STACK</a>
+      <a href="#experience" class="mobile-nav-link">03. EXPERIENCE</a>
+      <a href="#telemetry" class="mobile-nav-link">04. METRICS</a>
+      <a href="#terminal" class="mobile-nav-link">05. TERMINAL</a>
+      <a href="#contact" class="mobile-nav-link highlight">06. CONTACT</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <div class="hero-meta-badge">
+          <span class="pulse-dot"></span>
+          <span class="meta-tag">STATUS: DEPLOYING REAL-TIME XR AT INNOVAE GROUP</span>
+        </div>
+
+        <h1 class="hero-title">
+          INGENIERO DE SOFTWARE &amp;<br />
+          <span class="text-cyan text-glow">VR ARCHITECT</span>
+        </h1>
+
+        <div class="hero-typewriter-container">
+          <span class="typewriter-prompt">&gt;</span>
+          <span id="typewriter-text" class="typewriter-target"></span>
+          <span class="typewriter-cursor">_</span>
+        </div>
+
+        <p class="hero-bio">
+          Graduado en <strong>Ingeniería Informática</strong> enfocado en computación espacial,
+          arquitectura de experiencias inmersivas en <strong>Unity &amp; VR</strong>, sistemas multijugador con
+          <strong>Netcode / DOTS</strong> y metodologías modernas impulsadas por IA (<strong>Spec-Driven Development</strong>).
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-cyber-primary">
+            <span class="btn-cut"></span>
+            <i class="fa-solid fa-bolt"></i> INICIAR CONTACTO
+          </a>
+          <a href="#experience" class="btn btn-cyber-secondary">
+            <span class="btn-cut"></span>
+            <i class="fa-solid fa-cubes"></i> EXPLORAR PROYECTOS
+          </a>
+          <a href="https://github.com/gorkaseto" target="_blank" rel="noopener noreferrer" class="btn btn-cyber-icon" title="Perfil de GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/gorka-setien/" target="_blank" rel="noopener noreferrer" class="btn btn-cyber-icon" title="Perfil de LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Holographic Profile Card -->
+      <div class="hero-visual">
+        <div class="cyber-frame-wrapper">
+          <div class="cyber-frame-corner top-left"></div>
+          <div class="cyber-frame-corner top-right"></div>
+          <div class="cyber-frame-corner bottom-left"></div>
+          <div class="cyber-frame-corner bottom-right"></div>
+          
+          <div class="holo-card">
+            <div class="holo-header">
+              <span class="holo-dot red"></span>
+              <span class="holo-dot amber"></span>
+              <span class="holo-dot green"></span>
+              <span class="holo-title">OPERATOR_ID: GORKA_SETO</span>
+            </div>
+
+            <div class="holo-image-container">
+              <img src="./assets/agumon_hakase.png" alt="Agumon Hakase Avatar" class="holo-avatar" />
+              <div class="holo-glitch-layer"></div>
+              <div class="vpet-badge">
+                <img src="./assets/agumon_hakase_vpet.gif" alt="Agumon V-Pet" width="36" height="36" />
+                <span>PARTNER: AGUMON_HAKASE</span>
+              </div>
+            </div>
+
+            <div class="holo-specs-grid">
+              <div class="spec-row">
+                <span class="spec-key">DISCIPLINE:</span>
+                <span class="spec-val">Computer Science Engineer</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">CURRENT_STATION:</span>
+                <span class="spec-val text-cyan">Innovae Group</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">PRIMARY_STACK:</span>
+                <span class="spec-val">Unity 3D / C# / XR</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-key">NETWORK_ENG:</span>
+                <span class="spec-val">Unity Netcode / Photon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: ABOUT ME & ENGINEERING PHILOSOPHY -->
+    <section class="cyber-section" id="about">
+      <div class="section-header">
+        <span class="section-tag">[ 01 // SYSTEM DIAGNOSTIC ]</span>
+        <h2 class="section-title">PERFIL PROFESIONAL &amp; ENFOQUE</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="cyber-card card-accent-cyan">
+          <div class="card-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+          <h3 class="card-title">Realidad Virtual &amp; Espacial</h3>
+          <p class="card-text">
+            Desarrollo de experiencias inmersivas de alta fidelidad para <strong>Meta Quest</strong> y ecosistemas <strong>OpenXR</strong> en <strong>Innovae Group</strong>. Optimización de renderizado en tiempo real, latencia mínima e interacción háptica y gestual precisa.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Unity XR</span>
+            <span class="tag">Meta Quest</span>
+            <span class="tag">OpenXR</span>
+            <span class="tag">Spatial Audio</span>
+          </div>
+        </div>
+
+        <div class="cyber-card card-accent-magenta">
+          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3 class="card-title">Arquitectura &amp; Netcode</h3>
+          <p class="card-text">
+            Especializado en arquitecturas escalables y sincronización multijugador en tiempo real con <strong>Unity Netcode for GameObjects (NGO)</strong> y <strong>Photon Engine</strong>. Adopción de paradigmas data-oriented como <strong>Unity DOTS/ECS</strong> para simulaciones de alta densidad.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Netcode (NGO)</span>
+            <span class="tag">Photon</span>
+            <span class="tag">DOTS / ECS</span>
+            <span class="tag">Multiplayer Sync</span>
+          </div>
+        </div>
+
+        <div class="cyber-card card-accent-amber">
+          <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3 class="card-title">AI Coding &amp; Spec-Driven Dev</h3>
+          <p class="card-text">
+            Integración de vanguardia de <strong>LLMs y flujos de trabajo Spec-Driven Development (SDD)</strong> en el ciclo de vida del software. Diseño riguroso de especificaciones arquitectónicas, testing automatizado y orquestación asistida por agentes autónomos.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Spec-Driven Dev</span>
+            <span class="tag">LLM Orchestration</span>
+            <span class="tag">AI Workflows</span>
+            <span class="tag">Clean Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: TECH STACK MATRIX -->
+    <section class="cyber-section" id="tech">
+      <div class="section-header">
+        <span class="section-tag">[ 02 // TECHNICAL ARSENAL ]</span>
+        <h2 class="section-title">STACK TECNOLÓGICO &amp; PROTOCOLOS</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="tech-matrix">
+        <!-- Category 1: Engines & XR -->
+        <div class="tech-category-panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-gamepad panel-icon text-cyan"></i>
+            <h4>XR &amp; REAL-TIME ENGINES</h4>
+          </div>
+          <div class="tech-items-grid">
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Unity Engine</span>
+                <span class="tech-desc">Core 3D &amp; XR Platform</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-headset chip-generic-icon text-cyan"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Meta Quest SDK</span>
+                <span class="tech-desc">Quest 2, 3 &amp; Pro VR</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-cube chip-generic-icon text-cyan"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">OpenXR</span>
+                <span class="tech-desc">Industry Standard API</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-layer-group chip-generic-icon text-cyan"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">XR Interaction Toolkit</span>
+                <span class="tech-desc">Locomotion &amp; Grabbing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Languages -->
+        <div class="tech-category-panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-code panel-icon text-magenta"></i>
+            <h4>LENGUAJES &amp; FRAMEWORKS</h4>
+          </div>
+          <div class="tech-items-grid">
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+              <div class="tech-chip-info">
+                <span class="tech-name">C# (.NET)</span>
+                <span class="tech-desc">Primary Game &amp; VR Logic</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Python</span>
+                <span class="tech-desc">Automation, AI &amp; Tooling</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Flutter &amp; Dart</span>
+                <span class="tech-desc">Cross-Platform Apps</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Android Native</span>
+                <span class="tech-desc">OS Internals &amp; Builds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Architecture & Multiplayer -->
+        <div class="tech-category-panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-satellite panel-icon text-amber"></i>
+            <h4>NETWORKING &amp; SYSTEMS ARCHITECTURE</h4>
+          </div>
+          <div class="tech-items-grid">
+            <div class="tech-chip">
+              <i class="fa-solid fa-network-wired chip-generic-icon text-amber"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Unity NGO</span>
+                <span class="tech-desc">Netcode for GameObjects</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-bolt-lightning chip-generic-icon text-amber"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Photon Engine</span>
+                <span class="tech-desc">Multiplayer Cloud &amp; Realtime</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-atom chip-generic-icon text-amber"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Unity DOTS</span>
+                <span class="tech-desc">Data-Oriented Tech Stack</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-diagram-project chip-generic-icon text-amber"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Entity Component System</span>
+                <span class="tech-desc">High Performance Architecture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: AI & Development Protocols -->
+        <div class="tech-category-panel">
+          <div class="panel-header">
+            <i class="fa-solid fa-brain panel-icon text-cyan"></i>
+            <h4>AI INTEGRATION &amp; WORKFLOWS</h4>
+          </div>
+          <div class="tech-items-grid">
+            <div class="tech-chip">
+              <i class="fa-solid fa-file-contract chip-generic-icon text-cyan"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">Spec-Driven Dev</span>
+                <span class="tech-desc">Structured Specs to Code</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <i class="fa-solid fa-robot chip-generic-icon text-cyan"></i>
+              <div class="tech-chip-info">
+                <span class="tech-name">LLM Tooling</span>
+                <span class="tech-desc">AI-Assisted Engineering</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Git &amp; GitHub</span>
+                <span class="tech-desc">CI/CD &amp; Version Control</span>
+              </div>
+            </div>
+            <div class="tech-chip">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
+              <div class="tech-chip-info">
+                <span class="tech-name">Dev Environment</span>
+                <span class="tech-desc">VS Code &amp; Android Studio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: OPERATIONAL EXPERIENCE -->
+    <section class="cyber-section" id="experience">
+      <div class="section-header">
+        <span class="section-tag">[ 03 // FIELD EXPERIENCE ]</span>
+        <h2 class="section-title">TRAYECTORIA &amp; OPERACIONES</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Entry 1: Innovae -->
+        <div class="timeline-node">
+          <div class="node-indicator">
+            <div class="node-core"></div>
+            <div class="node-pulse"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div class="company-brand">
+                <span class="company-badge">ACTUAL</span>
+                <h3 class="company-role">Virtual Reality &amp; Software Developer</h3>
+                <h4 class="company-name"><a href="https://www.innovae.com/" target="_blank" rel="noopener noreferrer">Innovae Group <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h4>
+              </div>
+              <span class="timeline-date"><i class="fa-regular fa-calendar"></i> PRESENTE</span>
+            </div>
+
+            <p class="timeline-summary">
+              Liderando e implementando soluciones inmersivas de Realidad Virtual para proyectos industriales y formativos de alta exigencia técnica.
+            </p>
+
+            <ul class="timeline-bullets">
+              <li><i class="fa-solid fa-angle-right text-cyan"></i> Desarrollo integral en <strong>Unity 3D</strong> enfocado en dispositivos autónomos (Meta Quest) con máxima estabilidad de framerate.</li>
+              <li><i class="fa-solid fa-angle-right text-cyan"></i> Arquitectura de interacciones hápticas complejas, manipulación de objetos y ergonomía espacial para el usuario.</li>
+              <li><i class="fa-solid fa-angle-right text-cyan"></i> Optimización agresiva de render pipelines móviles (draw calls, batching, baking de iluminación y profiling de GPU/CPU).</li>
+              <li><i class="fa-solid fa-angle-right text-cyan"></i> Integración de comunicaciones en red y protocolos de persistencia de datos.</li>
+            </ul>
+
+            <div class="timeline-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">Meta Quest</span>
+              <span class="tag">C#</span>
+              <span class="tag">Performance Profiling</span>
+              <span class="tag">Spatial Interaction</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entry 2: Computer Science Degree & Specialization -->
+        <div class="timeline-node">
+          <div class="node-indicator">
+            <div class="node-core inactive"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div class="company-brand">
+                <span class="company-badge badge-neutral">INGENIERÍA</span>
+                <h3 class="company-role">Grado en Ingeniería Informática</h3>
+                <h4 class="company-name">Computer Science &amp; Software Engineering</h4>
+              </div>
+              <span class="timeline-date"><i class="fa-solid fa-graduation-cap"></i> ALUMNI</span>
+            </div>
+
+            <p class="timeline-summary">
+              Formación sólida en computación, estructuras de datos, algoritmos avanzados, desarrollo concurrente y redes, orientando la especialización hacia gráficos por computador, realidad virtual y sistemas distribuidos.
+            </p>
+
+            <div class="timeline-tags">
+              <span class="tag">Software Architecture</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Computer Graphics</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: TELEMETRY & GITHUB METRICS -->
+    <section class="cyber-section" id="telemetry">
+      <div class="section-header">
+        <span class="section-tag">[ 04 // LIVE TELEMETRY ]</span>
+        <h2 class="section-title">ACTIVIDAD EN TIEMPO REAL &amp; GITHUB</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="metrics-grid">
+        <!-- Stats Card -->
+        <div class="metric-hud-frame">
+          <div class="metric-frame-bar">
+            <span>GITHUB_OVERVIEW // USER: gorkaseto</span>
+            <span class="status-live">LIVE_DATA</span>
+          </div>
+          <div class="metric-img-container">
+            <img src="https://github-readme-stats.vercel.app/api?username=gorkaseto&show_icons=true&include_all_commits=true&theme=tokyonight&hide_border=true&bg_color=0c101700&title_color=00f0ff&icon_color=00f0ff&text_color=94a3b8" 
+                 alt="GitHub Stats for Gorka Setién" 
+                 loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Languages Card -->
+        <div class="metric-hud-frame">
+          <div class="metric-frame-bar">
+            <span>MOST_USED_LANGUAGES // ANALYSIS</span>
+            <span class="status-live">PROFILED</span>
+          </div>
+          <div class="metric-img-container">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=gorkaseto&layout=compact&theme=tokyonight&hide_border=true&bg_color=0c101700&title_color=00f0ff&text_color=94a3b8" 
+                 alt="Top Languages for Gorka Setién" 
+                 loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Streak Card -->
+        <div class="metric-hud-frame span-all">
+          <div class="metric-frame-bar">
+            <span>COMMIT_STREAK // CONSISTENCY_METRIC</span>
+            <span class="status-live">SYNCHRONIZED</span>
+          </div>
+          <div class="metric-img-container">
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=gorkaseto&theme=tokyonight&hide_border=true&background=0c101700&stroke=00f0ff&ring=00f0ff&fire=00f0ff&currStreakLabel=00f0ff" 
+                 alt="GitHub Streak for Gorka Setién" 
+                 loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: INTERACTIVE CYBER TERMINAL -->
+    <section class="cyber-section" id="terminal">
+      <div class="section-header">
+        <span class="section-tag">[ 05 // TERMINAL CONSOLE ]</span>
+        <h2 class="section-title">CONSOLA DE COMANDOS INTERACTIVA</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="terminal-wrapper">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot close"></span>
+            <span class="dot min"></span>
+            <span class="dot max"></span>
+          </div>
+          <div class="terminal-title">gorkaseto@cyber-core:~ (bash/zsh emulation)</div>
+          <div class="terminal-status">[CONNECTED]</div>
+        </div>
+
+        <div class="terminal-body" id="terminal-screen" onclick="document.getElementById('terminal-input').focus();">
+          <div class="terminal-line text-muted">
+            ========================================================================<br />
+            &nbsp;GORKA_SETIÉN // VR &amp; SYSTEMS ARCHITECT TERMINAL [v2.4.0-release]<br />
+            &nbsp;Escribe '<span class="text-cyan">help</span>' para listar los comandos disponibles.<br />
+            ========================================================================
+          </div>
+          <div id="terminal-history"></div>
+          
+          <div class="terminal-input-row">
+            <span class="terminal-user">guest@gorkaseto:~$</span>
+            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="Escribe un comando..." />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: CONTACT / COMM-LINK -->
+    <section class="cyber-section" id="contact">
+      <div class="section-header">
+        <span class="section-tag">[ 06 // SECURE COMM-LINK ]</span>
+        <h2 class="section-title">CONTACTO &amp; ENLACES</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-card-wrapper">
+        <div class="contact-box">
+          <div class="contact-intro">
+            <h3>¿Hablamos sobre Realidad Virtual, Game Tech o Arquitectura?</h3>
+            <p>
+              Siempre abierto a discutir nuevos proyectos de Realidad Virtual, desarrollo con Unity, sincronización de red o innovación en desarrollo asistido por IA.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/gorka-setien/" target="_blank" rel="noopener noreferrer" class="contact-channel">
+              <div class="channel-icon text-cyan"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="channel-info">
+                <span class="channel-type">PROFESSIONAL NETWORK</span>
+                <span class="channel-val">linkedin.com/in/gorka-setien</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/gorkaseto" target="_blank" rel="noopener noreferrer" class="contact-channel">
+              <div class="channel-icon text-magenta"><i class="fa-brands fa-github"></i></div>
+              <div class="channel-info">
+                <span class="channel-type">CODE REPOSITORY</span>
+                <span class="channel-val">github.com/gorkaseto</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
+            </a>
+
+            <!-- Direct Email with Copy Action -->
+            <div class="contact-channel copy-channel" id="copy-email-btn" role="button" tabindex="0" title="Copiar email al portapapeles">
+              <div class="channel-icon text-amber"><i class="fa-solid fa-envelope"></i></div>
+              <div class="channel-info">
+                <span class="channel-type">DIRECT COMM-LINK</span>
+                <span class="channel-val" id="email-address">gorka.seto@gmail.com</span>
+              </div>
+              <span class="channel-badge" id="copy-feedback"><i class="fa-regular fa-copy"></i> COPIAR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="hud-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">&copy; 2026 GORKA SETIÉN.</span>
+        <span class="footer-sub">All Systems Operational. Built for GitHub Pages.</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="footer-back-to-top">
+          <i class="fa-solid fa-angle-up"></i> TOP OF MATRIX
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./main.js"></script>
+</body>
+</html>
