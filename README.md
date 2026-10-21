@@ -15,7 +15,6 @@ Personal website and technical portfolio of **Gorka Setien** (@gorkaseto), deplo
   - Terminal effect and typewriter animation.
   - Cyberpunk interactive command console (`help`, `ai`, `about`, `stack`, `experience`, `contact`, `whoami`, etc.).
   - Dynamic HTML5 canvas background featuring mouse-reactive interconnected nodes.
-  - Live telemetry synchronized with GitHub statistics and streaks.
   - Tactical clipboard copy feedback for the contact email.
 - **Optimization:** Zero heavy dependencies, instantaneous loading, fully compatible with GitHub Pages via `.nojekyll`.
 

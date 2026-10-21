@@ -1227,59 +1227,6 @@ ul {
 }
 
 /* ==========================================================================
-   SECTION 04: TELEMETRY (GITHUB METRICS)
-   ========================================================================== */
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-}
-
-.metric-hud-frame {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-cyber);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.metric-hud-frame.span-all {
-  grid-column: 1 / -1;
-}
-
-.metric-frame-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.6rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.status-live {
-  color: var(--cyan-primary);
-  font-weight: 600;
-}
-
-.metric-img-container {
-  padding: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 180px;
-}
-
-.metric-img-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-/* ==========================================================================
    SECTION 05: INTERACTIVE CYBER TERMINAL
    ========================================================================== */
 
@@ -1573,10 +1520,6 @@ ul {
 
   .hero-actions {
     justify-content: center;
-  }
-
-  .metrics-grid {
-    grid-template-columns: 1fr;
   }
 }
 
