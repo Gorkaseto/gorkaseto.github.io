@@ -1,5 +1,5 @@
 /**
- * Gorka Setién Portfolio - Main Interactive Logic
+ * Gorka Setien Portfolio - Main Interactive Logic
  * Serious Cyberpunk Theme
  */
 
@@ -39,11 +39,12 @@ function initTypewriter() {
   if (!target) return;
 
   const phrases = [
-    'Unity & Virtual Reality Developer',
-    'Computer Science Engineer',
-    'VR Systems Architect @ Innovae Group',
-    'Multiplayer Netcode & DOTS Specialist',
-    'LLMs & Spec-Driven Development (SDD)'
+    'LLMs & Spec-Driven Development (SDD)',
+    'Autonomous AI Agents & MCP Tooling',
+    'Unity & Virtual Reality Architect',
+    'Computer Science Engineer @ Innovae Group',
+    'Context Engineering & Neural Workflows',
+    'High-Performance Multiplayer (NGO & DOTS)'
   ];
 
   let phraseIndex = 0;
@@ -201,27 +202,35 @@ function initTerminal() {
   const commandList = {
     help: () => `
 <span class="text-cyan">COMANDOS DISPONIBLES:</span>
-  <span class="text-amber">about</span>       - Resumen de perfil y enfoque
-  <span class="text-amber">stack</span>       - Tecnologías, motores y lenguajes clave
-  <span class="text-amber">experience</span>  - Información laboral actual y formación
-  <span class="text-amber">contact</span>     - Canales de comunicación y redes
+  <span class="text-amber">ai</span>          - Protocolos de IA, LLMs y Spec-Driven Dev
+  <span class="text-amber">about</span>       - Resumen de perfil y enfoque de ingeniería
+  <span class="text-amber">stack</span>       - Arsenal tecnológico y protocolos clave
+  <span class="text-amber">experience</span>  - Información laboral actual (Innovae) y formación
+  <span class="text-amber">contact</span>     - Canales de comunicación directa
   <span class="text-amber">partner</span>     - Identificación del asistente digital
   <span class="text-amber">clear</span>       - Limpiar pantalla de consola
   <span class="text-amber">whoami</span>      - Diagnóstico de sesión
   <span class="text-amber">date</span>        - Timestamp del sistema
 `,
+    ai: () => `
+<span class="text-cyan">[NEURAL PROTOCOLS &amp; AI CAPABILITIES]</span>
+• <strong class="text-main">Spec-Driven Development (SDD):</strong> Especificaciones formales como blueprint canónico para generación determinista de código.
+• <strong class="text-main">Autonomous Agent Orchestration:</strong> Pipelines agénticos multi-rol (investigador, arquitecto, ejecutor, auditor).
+• <strong class="text-main">Model Context Protocol (MCP):</strong> Interconexión de LLMs con herramientas del workspace, profiling de Unity y servicios externos.
+• <strong class="text-main">Context Engineering:</strong> Gestión estricta de ventanas de contexto, RAG estructurado y minimización de alucinaciones.
+`,
     about: () => `
 <span class="text-cyan">[DIAGNÓSTICO // ABOUT]</span>
-Gorka Setién: Ingeniero Informático especializado en Realidad Virtual, 
-arquitectura multijugador con Unity y computación espacial en Innovae Group.
-Pionero en integración de Spec-Driven Development y pipelines asistidos por IA.
+Gorka Setien: Computer Science Engineer especializado en la intersección de
+Inteligencia Artificial aplicada (LLMs, SDD, agentes) y computación espacial
+(Unity VR, Netcode, DOTS) en Innovae Group.
 `,
     stack: () => `
 <span class="text-cyan">[ARSENAL TECNOLÓGICO]</span>
-• <strong class="text-main">XR / Engines:</strong> Unity 3D, Meta Quest SDK, OpenXR, XR Interaction Toolkit
-• <strong class="text-main">Languages:</strong> C# (.NET), Python, Dart, Flutter, Android
+• <strong class="text-cyan">AI &amp; Neural:</strong> LLMs, Spec-Driven Development (SDD), Autonomous Agents, MCP, Context Engineering
+• <strong class="text-magenta">XR / Engines:</strong> Unity 3D, Meta Quest SDK, OpenXR, XR Interaction Toolkit
+• <strong class="text-amber">Languages:</strong> C# (.NET), Python, Dart, Flutter, Android Native
 • <strong class="text-main">Architecture:</strong> Unity NGO (Netcode), Photon Engine, DOTS / ECS
-• <strong class="text-main">Methodologies:</strong> Spec-Driven Development (SDD), LLM-Augmented Dev
 `,
     experience: () => `
 <span class="text-cyan">[HISTORIAL DE OPERACIONES]</span>
