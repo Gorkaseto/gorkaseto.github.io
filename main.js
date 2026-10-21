@@ -273,6 +273,9 @@ Agumon Hakase // Research specialist and data systems operative.
     void terminalFrame.offsetWidth;
 
     heroSection.classList.add('terminal-active');
+    if (operatorCard) {
+      operatorCard.setAttribute('aria-expanded', 'true');
+    }
 
     setTimeout(() => {
       terminalInput.focus();
@@ -284,6 +287,9 @@ Agumon Hakase // Research specialist and data systems operative.
     if (!heroSection || !terminalFrame) return;
 
     heroSection.classList.remove('terminal-active');
+    if (operatorCard) {
+      operatorCard.setAttribute('aria-expanded', 'false');
+    }
 
     // Wait for the slide/fade transition to complete before setting display: none
     setTimeout(() => {
@@ -301,16 +307,20 @@ Agumon Hakase // Research specialist and data systems operative.
     }
   }
 
-  // Operator card and frame click toggles terminal
-  const clickTarget = operatorCard || operatorFrame;
-  if (clickTarget) {
-    clickTarget.style.cursor = 'pointer';
-    clickTarget.addEventListener('click', (e) => {
+  // Operator window (frame & card) click toggles terminal
+  const operatorTrigger = operatorFrame || operatorCard;
+  if (operatorTrigger) {
+    operatorTrigger.style.cursor = 'pointer';
+    operatorTrigger.addEventListener('click', (e) => {
       if (e.target.closest('#hero-terminal-frame')) return;
       toggleTerminal();
     });
+  }
 
-    clickTarget.addEventListener('keydown', (e) => {
+  // Keyboard accessibility for operator card
+  if (operatorCard) {
+    operatorCard.setAttribute('aria-expanded', 'false');
+    operatorCard.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         toggleTerminal();
@@ -318,11 +328,13 @@ Agumon Hakase // Research specialist and data systems operative.
     });
   }
 
-  if (operatorFrame && operatorFrame !== clickTarget) {
-    operatorFrame.style.cursor = 'pointer';
-    operatorFrame.addEventListener('click', (e) => {
-      if (e.target.closest('#hero-terminal-frame')) return;
-      toggleTerminal();
+  // Clicking anywhere inside terminal screen focuses the input
+  if (terminalScreen) {
+    terminalScreen.addEventListener('click', () => {
+      const selection = window.getSelection();
+      if (!selection || selection.toString().length === 0) {
+        terminalInput.focus();
+      }
     });
   }
 
